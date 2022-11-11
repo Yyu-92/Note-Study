@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 객체지향 프로그래밍2 - this</title>
+</head>
+<body>
+    <script>
+        var me = {
+            name : 'Kim',
+            first : 10,
+            second :20,
+            sum : function(){
+                // return first + second; [결과] not defined
+                return this.first + this.second;
+            }
+        };
+
+        console.log("me.sum() : ", me.sum());
+    
+    </script>
+</body>
+</html>
