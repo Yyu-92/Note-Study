@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 객체지향 프로그래밍6 - super</title>
+</head>
+<body>
+    <script>
+        // 객체를 찍어내는 공장, constructor function을 대체
+        class Person{
+            // function이라는 키워드를 쓰지 않는다.
+            // 반드시 constructor 키워드를 써야한다.
+            constructor(name, first, second){
+                this.name = name;
+                this.first = first;
+                this.second = second;
+            }
+
+            sum(){
+                return this.first + this.second;
+            }
+        }
+
+        var me = new Person('KIM', 10, 20);
+
+        console.log('me : ', me);
+        console.log('me.sum() : ', me.sum());
+        
+        // 인자를 더 늘리고 싶으면?
+        class PersonPlus extends Person{
+            constructor(name, first, second, third){
+                // this.name = name;
+                // this.first = first;
+                // this.second = second;
+                super(name, first, second); // 부모도 가지고 나도 가지고 있는 애들
+                this.third = third;
+            }
+
+            sum(){
+                return super.sum() + this.third;
+            }
+
+            avg(){
+                return (super.sum() + this.third)/3;
+            }
+        }
+        var you = new PersonPlus('BONG', 10, 20, 30);
+        console.log('you.sum() : ', you.sum());
+        console.log('you.avg() : ', you.avg());
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 객체지향 프로그래밍3 - constructor</title>
+</head>
+<body>
+    <script>
+        
+        function Person(name, first, second){
+            this.name = name;
+            this.first = first;
+            this.second = second;
+            this.sum = function(){
+                return this.first + this.second;
+            }
+        }
+
+        console.log('Person() : ', Person()); // [결과] undefined
+        // 함수를 그냥 호출하면 그냥 함수지만 , new라는 키워드를 붙이면 객체를 생성하는 생성자가 된다.
+        // constructor 생성자 함수
+        console.log('new Person() : ', new Person());
+
+        var me = new Person('BONG', 10, 10);
+        console.log('new Person() : ', me);
+        console.log('me.sum() : ', me.sum());
+
+        var you = new Person('KIM', 110, 110);
+        console.log('new Person() : ', you);
+        console.log('me.sum() : ', you.sum());
+
+    </script>
+</body>
+</html>

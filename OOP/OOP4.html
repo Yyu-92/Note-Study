@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 객체지향 프로그래밍4 - prototype</title>
+</head>
+<body>
+    <script>
+        // 생성자 안에서 메소드를 만들면 유연성이 떨어진다.
+        function Person(name, first, second){
+            this.name = name;
+            this.first = first;
+            this.second = second;
+            // this.sum = function(){
+            //     return this.first + this.second;
+            // }
+        }
+        
+        // Person이라는 함수의 원형을 만든다(공통적으로 쓸 함수를 따로 만들어줌)
+        // 성능 절약, 메모리 절약
+        Person.prototype.sum = function(){
+            return this.first + this.second;
+        }
+
+        var me = new Person('BONG', 10, 10);
+        var you = new Person('KIM', 110, 110);
+
+        console.log('me.sum() : ', me.sum());
+        console.log('me.sum() : ', you.sum());
+
+        // me의 sum메소드만 다르게 동작하게 하고 싶을 때
+        me.sum = function(){
+            return this.first + this.second/2;
+        }
+        console.log('me.sum()만 다르게 : ', me.sum());
+
+    </script>
+</body>
+</html>
